@@ -15,10 +15,13 @@ def FindPeaks(xaxis, yaxis): #don't return indexes
 
 def PlotPeaks(xaxis, yaxis):
     xp, yp = FindPeaks(xaxis, yaxis)
+    xpneg, ypneg = FindPeaks(xaxis, -yaxis)
+    ypneg = -ypneg
     
     plt.figure()
     plt.plot(xaxis, yaxis, color='r', label="data")
-    plt.plot(xp, yp, color='b', linewidth=0, marker=".", markersize=6, label="peak")
+    plt.plot(xp, yp, color='b', linewidth=0, marker=".", markersize=7, label="pospeak")
+    plt.plot(xpneg, ypneg, color='g', linewidth=0, marker=".", markersize=7, label="negpeak")
     plt.legend()
     plt.title("Peaks find example")
     plt.xlabel("x")
