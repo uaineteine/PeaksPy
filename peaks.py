@@ -20,8 +20,8 @@ def PlotPeaks(xaxis, yaxis):
     
     plt.figure()
     plt.plot(xaxis, yaxis, color='r', label="data")
-    plt.plot(xp, yp, color='b', linewidth=0, marker=".", markersize=7, label="pospeak")
-    plt.plot(xpneg, ypneg, color='g', linewidth=0, marker=".", markersize=7, label="negpeak")
+    plt.plot(xp, yp, color='b', linewidth=0, marker=".", markersize=7, label="maxpeak")
+    plt.plot(xpneg, ypneg, color='g', linewidth=0, marker=".", markersize=7, label="minpeak")
     plt.legend()
     plt.title("Peaks find example")
     plt.xlabel("x")
@@ -30,7 +30,7 @@ def PlotPeaks(xaxis, yaxis):
 
 def TestModule():
     x = np.linspace(0, 100, 1000)
-    y = np.sin(x) + 0.5 * np.cos(0.5*x)
+    y = np.sin(x) + 0.5 * np.cos(0.5*x)*np.sin(3*x)
     PlotPeaks(x, y)
 
 #run module
