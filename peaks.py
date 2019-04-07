@@ -33,5 +33,26 @@ def TestModule():
     y = np.sin(x) + 0.5 * np.cos(0.5*x)*np.sin(3*x)
     PlotPeaks(x, y)
 
+def FD(xaxis, yaxis):#forward difference
+    n = len(xaxis)
+    new = n-1
+    xnew = [0]*new
+    ynew = [0]*new
+    for i in range(0, new):
+        xnew[i] = xaxis[i+1]
+        ynew[i] = yaxis[i+1]-yaxis[i]
+    return np.array(xnew), np.array(ynew)
+
+def FirstPointUnder(xaxis, yaxis, underThis):
+    for i, val in enumerate(yaxis):
+        if val < underThis:
+            return i
+
+def LastPointUnder(xaxis, yaxis, aboveThis):#last point so do it in reverse:
+    n = len(xaxis)
+    for i in range(0, n):
+        k = n - 1 - i #my new index counting down
+        if yaxis[k] < aboveThis:
+            return k
 #run module
-TestModule()
+#TestModule()
